@@ -28,12 +28,10 @@ for path in sorted(DATA_DIR.glob("*.xlsx")):
             [study, path.name, sheet, table],
         )
 
+con.sql("SELECT * FROM general.studies").show()
+con.sql("SELECT * FROM fin_hit.anthropometrics limit 10").show()
+
 con.close()
 
-# 1. See what's in the project overall
-con.sql("SELECT * FROM general.studies").show()
-
-# 2. Query a single study's table directly
-con.sql("SELECT * FROM fin_hit.ffq limit 10").show()
 
 
